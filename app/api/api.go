@@ -2,6 +2,7 @@ package api
 
 import (
 	"log"
+	"main/api/fetch"
 	"net/http"
 	"time"
 
@@ -12,10 +13,19 @@ import (
 type Config struct {
 	Address string
 	Version string
+	Db      DbConfig
+}
+
+type DbConfig struct {
+	Address            string
+	MaxOpenConnections int
+	MaxIdleConnections int
+	MaxIdleTime        string
 }
 
 type Application struct {
 	Config Config
+	Store  fetch.Storage
 }
 
 func (api *Application) Mount() http.Handler {

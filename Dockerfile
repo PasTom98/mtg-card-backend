@@ -11,6 +11,6 @@ COPY . .
 
 RUN go build -o main.go
 
-RUN go run main.go
-
 EXPOSE 8080
+
+ENTRYPOINT exec go run main.go
