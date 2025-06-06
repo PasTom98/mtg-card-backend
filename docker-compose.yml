@@ -1,0 +1,11 @@
+version: "3"
+services:
+  api:
+    build:
+      dockerfile: /docker/API/Dockerfile
+      context: ./docker/API/Dockerfile
+    ports:
+      - "8080:8088"
+    volumes:
+      - /app/api:/app
+    

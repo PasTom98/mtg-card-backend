@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"mtg-card-backend/app/api"
+	"main/api"
 )
 
 func main() {
@@ -15,5 +15,7 @@ func main() {
 		Config: cfg,
 	}
 
-	log.Fatal(app.Run())
+	mux := app.Mount()
+
+	log.Fatal(app.Run(mux))
 }
